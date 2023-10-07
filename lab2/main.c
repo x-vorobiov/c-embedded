@@ -73,8 +73,6 @@ void printBooksList()
     printBook(p->data);
     p = p->next;
   }
-
-  return 0;
 }
 
 int main(void)
