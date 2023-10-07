@@ -11,7 +11,7 @@ Compiles an application to `application`.
 Or you can use `gcc`:
 
 ```sh
-  gcc main.c -o application
+gcc main.c -o application
 ```
 
 ### `make starts`
