@@ -54,6 +54,7 @@ dkms.conf
 
 ### Ninja ###
 .ninja_deps
+.ninja_log
 
 ### CMake ###
 CMakeLists.txt.user
