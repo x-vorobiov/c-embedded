@@ -36,41 +36,41 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/anton/c-embedded/coursework-task-3/
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target library
+# Object build statements for STATIC_LIBRARY target calculator
 
 
 #############################################
-# Order-only phony target for library
+# Order-only phony target for calculator
 
-build cmake_object_order_depends_target_library: phony || CMakeFiles/library.dir
+build cmake_object_order_depends_target_calculator: phony || CMakeFiles/calculator.dir
 
-build CMakeFiles/library.dir/main.c.o: C_COMPILER__library_unscanned_ /Users/anton/c-embedded/coursework-task-3/main.c || cmake_object_order_depends_target_library
-  DEP_FILE = CMakeFiles/library.dir/main.c.o.d
+build CMakeFiles/calculator.dir/main.c.o: C_COMPILER__calculator_unscanned_ /Users/anton/c-embedded/coursework-task-3/main.c || cmake_object_order_depends_target_calculator
+  DEP_FILE = CMakeFiles/calculator.dir/main.c.o.d
   FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  OBJECT_DIR = CMakeFiles/library.dir
-  OBJECT_FILE_DIR = CMakeFiles/library.dir
+  OBJECT_DIR = CMakeFiles/calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles/calculator.dir
 
-build CMakeFiles/library.dir/calculator.c.o: C_COMPILER__library_unscanned_ /Users/anton/c-embedded/coursework-task-3/calculator.c || cmake_object_order_depends_target_library
-  DEP_FILE = CMakeFiles/library.dir/calculator.c.o.d
+build CMakeFiles/calculator.dir/calculator.c.o: C_COMPILER__calculator_unscanned_ /Users/anton/c-embedded/coursework-task-3/calculator.c || cmake_object_order_depends_target_calculator
+  DEP_FILE = CMakeFiles/calculator.dir/calculator.c.o.d
   FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  OBJECT_DIR = CMakeFiles/library.dir
-  OBJECT_FILE_DIR = CMakeFiles/library.dir
+  OBJECT_DIR = CMakeFiles/calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles/calculator.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target library
+# Link build statements for STATIC_LIBRARY target calculator
 
 
 #############################################
-# Link the static library liblibrary.a
+# Link the static library libcalculator.a
 
-build liblibrary.a: C_STATIC_LIBRARY_LINKER__library_ CMakeFiles/library.dir/main.c.o CMakeFiles/library.dir/calculator.c.o
+build libcalculator.a: C_STATIC_LIBRARY_LINKER__calculator_ CMakeFiles/calculator.dir/main.c.o CMakeFiles/calculator.dir/calculator.c.o
   ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  OBJECT_DIR = CMakeFiles/library.dir
+  OBJECT_DIR = CMakeFiles/calculator.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = liblibrary.a
-  TARGET_PDB = library.a.dbg
+  TARGET_FILE = libcalculator.a
+  TARGET_PDB = calculator.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target app
@@ -79,7 +79,7 @@ build liblibrary.a: C_STATIC_LIBRARY_LINKER__library_ CMakeFiles/library.dir/mai
 #############################################
 # Order-only phony target for app
 
-build cmake_object_order_depends_target_app: phony || CMakeFiles/app.dir
+build cmake_object_order_depends_target_app: phony || cmake_object_order_depends_target_calculator
 
 build CMakeFiles/app.dir/main.c.o: C_COMPILER__app_unscanned_ /Users/anton/c-embedded/coursework-task-3/main.c || cmake_object_order_depends_target_app
   DEP_FILE = CMakeFiles/app.dir/main.c.o.d
@@ -95,9 +95,9 @@ build CMakeFiles/app.dir/main.c.o: C_COMPILER__app_unscanned_ /Users/anton/c-emb
 #############################################
 # Link the executable app
 
-build app: C_EXECUTABLE_LINKER__app_ CMakeFiles/app.dir/main.c.o
+build app: C_EXECUTABLE_LINKER__app_ CMakeFiles/app.dir/main.c.o | libcalculator.a || libcalculator.a
   FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LINK_LIBRARIES = -lcalculator
+  LINK_LIBRARIES = libcalculator.a
   OBJECT_DIR = CMakeFiles/app.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -131,7 +131,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build library: phony liblibrary.a
+build calculator: phony libcalculator.a
 
 # =============================================================================
 # Folder targets.
@@ -141,7 +141,7 @@ build library: phony liblibrary.a
 #############################################
 # Folder: /Users/anton/c-embedded/coursework-task-3
 
-build all: phony liblibrary.a app
+build all: phony libcalculator.a app
 
 # =============================================================================
 # Built-in targets
