@@ -58,7 +58,8 @@ dkms.conf
 ### CMake ###
 CMakeLists.txt.user
 CMakeCache.txt
-CMakeFiles
+CMakeFiles/*
+!CMakeFiles/rules.ninja
 CMakeScripts
 Testing
 Makefile
