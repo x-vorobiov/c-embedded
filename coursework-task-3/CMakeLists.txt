@@ -3,9 +3,9 @@ project(calculator)
 
 set(SOURCES main.c calculator.c)
 
-add_library(calculator STATIC ${SOURCES})
+add_library(library STATIC ${SOURCES})
 
-add_executable(calculator main.c)
-target_link_libraries(calculator calculator)
+add_executable(app main.c)
+target_link_libraries(app calculator)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
