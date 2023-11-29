@@ -3,7 +3,7 @@ project(calculator)
 
 set(SOURCES main.c calculator.c)
 
-add_library(library STATIC ${SOURCES})
+add_library(calculator STATIC ${SOURCES})
 
 add_executable(app main.c)
 target_link_libraries(app calculator)
